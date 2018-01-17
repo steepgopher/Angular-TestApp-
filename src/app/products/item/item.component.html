@@ -1,0 +1,32 @@
+<div class="item" *ngIf="item">
+  <div class="main-block">
+    <mat-checkbox class="checkbox-element" 
+                  color="primary" 
+                  disableRipple="true" 
+                  (change)="onSelect(item)" 
+                  [checked]="item.isChecked">
+    </mat-checkbox>
+    <div class="values">
+      <div class="col">
+        <p class="fild-title simple-text">№:</p>
+        <p class="fild-value simple-text">{{item.number}}</p>
+      </div>
+      <div class="col">
+        <p class="fild-title simple-text">Name:</p>
+        <p class="fild-value simple-text">{{item.name}}</p>
+      </div>
+      <div class="col">
+        <p class="fild-title simple-text">Price:</p>
+        <p class="fild-value simple-text">{{item.price | currency}}</p>
+      </div>
+      <div class="col" *ngIf="moreId === item._id">
+        <p class="fild-title simple-text">Desc:</p>
+        <p class="fild-value simple-text">{{item.desc}}</p>
+      </div>
+    </div>
+  </div>
+  <div class="btn-block">
+    <button (click)="edit(item)" mat-raised-button>EDIT</button>
+    <button (click)="more(item._id)" mat-raised-button>{{moreId === item._id ? 'HIDE' : 'MORE'}}</button>
+  </div>
+</div>

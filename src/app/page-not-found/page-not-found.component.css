@@ -1,0 +1,25 @@
+.main-container {
+    height: calc(100vh - 5px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+p.main-title {
+    font-size: 30px;
+    font-family: Roboto-Bold;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: Roboto-Regular;
+    font-size: 20px;
+}
+
+p.message {
+    margin: 0;
+}
