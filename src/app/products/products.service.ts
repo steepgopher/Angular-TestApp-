@@ -39,6 +39,18 @@ export class ProductsService {
     }
   }
 
+  public addProducts(value: Product) {
+    if (this._products) {
+      if (value) {
+        this._products.unshift(value);
+      } else {
+        throw Error('Error product undefined!');
+      }
+    } else {
+      throw Error('Error products undefined!');
+    }
+  }
+
   public getProducts(): Observable<Product[]> {
     if (this._products) {
       return Observable.of(this._products);

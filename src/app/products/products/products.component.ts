@@ -81,7 +81,12 @@ export class ProductsComponent implements OnInit, OnDestroy {
       height: '500px'
     });
 
-    this.dialogRef.afterClosed().subscribe((result: Product) => this.items.unshift(result));
+    this.dialogRef.afterClosed().subscribe((result: Product) => {
+      if (result) {
+        this.items.unshift(result);
+        this._productsService.addProducts(result);
+      }
+    });
   }
 
   public selectedItemHandle(id): void {

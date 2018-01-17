@@ -22,6 +22,10 @@ describe('ProductsService', () => {
         expect(service.updateProduct).toBeTruthy();
     }));
 
+    it('should be define addProducts method', inject([ProductsService], (service: ProductsService) => {
+        expect(service.addProducts).toBeTruthy();
+    }));
+
     it('should be define removeProducts method', inject([ProductsService], (service: ProductsService) => {
         expect(service.removeProducts).toBeTruthy();
     }));
@@ -45,5 +49,12 @@ describe('ProductsService', () => {
             const value = new Product({ name: 'Name', price: '123', desc: 'Desc' });
             service['_products'] = [value];
             expect(() => service.updateProduct(null, value)).toThrow();
+        })));
+
+    it('addProducts method must create exeption (value undefined)', async(inject(
+        [ProductsService], (service, mockBackend) => {
+            const value = new Product({ name: 'Name', price: '123', desc: 'Desc' });
+            service['_products'] = [value];
+            expect(() => service.addProducts(null)).toThrow();
         })));
 });
